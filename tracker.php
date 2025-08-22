@@ -19,10 +19,18 @@ $linkCode = $_GET['code'] ?? 'undefined';
 
 // 4. ПРОВЕРКА СООТВЕТСТВИЯ ШАБЛОНУ И РАННИЙ ВЫХОД
 // Если ссылка НЕ соответствует шаблону - немедленный редирект на URL раннего доступа
-if (! (strpos($linkCode, 'tt') === 0 || strpos($linkCode, 'yt') === 0 || strpos($linkCode, 'in') === 0)) {
+if (! (strpos($linkCode, 'tt') === 0 || strpos($linkCode, 'yt') === 0 || strpos($linkCode, 'ig') === 0)) {
     header("Location: " . $earlyAccessFormUrl);
     exit();
 }
+
+// сслки на кампании
+if (strpos($linkCode, 'yt') === 0) {
+    $iosStoreUrl = "https://apps.apple.com/app/apple-store/id6478308548?pt=95910874&ct=ytsh&mt=8";
+} else if (strpos($linkCode, 'ig') === 0) {
+    $iosStoreUrl = "https://apps.apple.com/app/apple-store/id6478308548?pt=95910874&ct=igh&mt=8";
+}
+
 
 // КОД НИЖЕ ВЫПОЛНЯЕТСЯ ТОЛЬКО ЕСЛИ ССЫЛКА СООТВЕТСТВУЕТ ШАБЛОНУ
 

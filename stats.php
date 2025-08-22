@@ -63,8 +63,8 @@ $yt_total = getTotalClicksByPrefix($conn, 'yt');
 $yth_clicks = getHeaderClicks($conn, 'yth');
 $yt_percentage = ($yt_total > 0) ? round(($yth_clicks / $yt_total) * 100) : 0;
 
-$in_total = getTotalClicksByPrefix($conn, 'in');
-$inh_clicks = getHeaderClicks($conn, 'inh');
+$in_total = getTotalClicksByPrefix($conn, 'ig');
+$inh_clicks = getHeaderClicks($conn, 'igh');
 $in_percentage = ($in_total > 0) ? round(($inh_clicks / $in_total) * 100) : 0;
 
 // Статистика по платформам
@@ -123,7 +123,7 @@ $conn->close();
         <h2>Clicks by Prefix:</h2>
         <p>tt = <?php echo $tt_total; ?> (<?php echo $tt_percentage; ?>% profile links)</p>
         <p>yt = <?php echo $yt_total; ?> (<?php echo $yt_percentage; ?>% profile links)</p>
-        <p>in = <?php echo $in_total; ?> (<?php echo $in_percentage; ?>% profile links)</p>
+        <p>ig = <?php echo $in_total; ?> (<?php echo $in_percentage; ?>% profile links)</p>
 
         <h2>Clicks by Platform:</h2>
         <p>Android = <?php echo $android_percentage; ?>%</p>
