@@ -5,6 +5,9 @@ require_once 'config.php';
 $message = '';
 $isSubmitted = false;
 
+$iosStoreUrl = $_GET['appStoreLink'] ?? "https://apps.apple.com/ru/app/cardesign/id6478308548"; // Default URL или полученная из tracker.php
+$iosStoreUrl = urldecode($iosStoreUrl);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
 
@@ -144,6 +147,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         button:hover {
             background-color: #ffcc00; /* Более темный желтый при наведении */
         }
+        .app-store-button {
+            background-color: #1a73e8; /* Синий цвет для кнопки App Store */
+            color: #fff; /* Белый текст */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: clamp(18px, 5vw, 24px);
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            margin-top: 20px;
+            text-decoration: none; /* Убираем подчеркивание у ссылки */
+            display: inline-block; /* Для применения padding и margin */
+        }
+        .app-store-button:hover {
+            background-color: #1558b1; /* Более темный синий при наведении */
+        }
         .message {
             margin-top: 20px;
             padding: 10px;
@@ -181,8 +201,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit">Subscribe</button>
             </form>
+            <a href="<?php echo htmlspecialchars($iosStoreUrl); ?>" target="_blank" class="app-store-button">Go to App Store</a>
         <?php else: ?>
             <p>We will notify you as soon as the game is available.</p>
+            <a href="<?php echo htmlspecialchars($iosStoreUrl); ?>" target="_blank" class="app-store-button">Go to App Store</a>
         <?php endif; ?>
     </div>
 </body>

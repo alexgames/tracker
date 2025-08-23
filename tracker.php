@@ -26,7 +26,7 @@ if (! (strpos($linkCode, 'tt') === 0 ||
     strpos($linkCode, 'ld') === 0 ||
     strpos($linkCode, 'dc') === 0 
 )) {
-    header("Location: " . $earlyAccessFormUrl);
+    header("Location: " . $earlyAccessFormUrl . "?appStoreLink=" . urlencode($iosStoreUrl)); // Передаем сформированную ссылку
     exit();
 }
 
@@ -85,7 +85,7 @@ $redirectUrl = $defaultUrl;
 
 // Если платформа 'other' (компьютер) - перенаправляем на форму раннего доступа
 if ($platform === 'other') {
-    $redirectUrl = $earlyAccessFormUrl;
+    $redirectUrl = $earlyAccessFormUrl . "?appStoreLink=" . urlencode($iosStoreUrl); // Передаем сформированную ссылку
 } else {
     // Логика для Android
     if ($platform === 'android') {
@@ -95,7 +95,7 @@ if ($platform === 'other') {
         if ($isAndroidAppReady) {
             $redirectUrl = $androidStoreUrl;
         } else {
-            $redirectUrl = $earlyAccessFormUrl;
+            $redirectUrl = $earlyAccessFormUrl . "?appStoreLink=" . urlencode($iosStoreUrl); // Передаем сформированную ссылку
         }
     }
     // Логика для iOS (iPhone и iPad)
