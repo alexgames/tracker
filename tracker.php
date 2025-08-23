@@ -23,8 +23,8 @@ if (! (strpos($linkCode, 'tt') === 0 ||
     strpos($linkCode, 'yt') === 0 || 
     strpos($linkCode, 'ig') === 0 ||
     strpos($linkCode, 'tw') === 0 || 
-    strpos($linkCode, 'ld') === 0 
-
+    strpos($linkCode, 'ld') === 0 ||
+    strpos($linkCode, 'dc') === 0 
 )) {
     header("Location: " . $earlyAccessFormUrl);
     exit();
@@ -39,6 +39,8 @@ if (strpos($linkCode, 'yt') === 0) {
     $iosStoreUrl = "https://apps.apple.com/app/apple-store/id6478308548?pt=95910874&ct=tw&mt=8";
 } else if (strpos($linkCode, 'ld') === 0) {
     $iosStoreUrl = "https://apps.apple.com/app/apple-store/id6478308548?pt=95910874&ct=ld&mt=8";
+} else if (strpos($linkCode, 'dc') === 0) {
+    $iosStoreUrl = "https://apps.apple.com/app/apple-store/id6478308548?pt=95910874&ct=dc&mt=8";
 }
 
 

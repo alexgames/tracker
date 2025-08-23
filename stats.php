@@ -75,6 +75,10 @@ $ld_total = getTotalClicksByPrefix($conn, 'ld');
 $ldh_clicks = getHeaderClicks($conn, 'ldh');
 $ld_percentage = ($ld_total > 0) ? round(($ldh_clicks / $ld_total) * 100) : 0;
 
+$dc_total = getTotalClicksByPrefix($conn, 'dc');
+$dch_clicks = getHeaderClicks($conn, 'dch');
+$dc_percentage = ($dc_total > 0) ? round(($dch_clicks / $dc_total) * 100) : 0;
+
 
 
 // Статистика по платформам
@@ -136,6 +140,7 @@ $conn->close();
         <p>ig = <?php echo $in_total; ?> (<?php echo $in_percentage; ?>% profile links)</p>
         <p>tw = <?php echo $tw_total; ?> (<?php echo $tw_percentage; ?>% profile links)</p>
         <p>ld = <?php echo $ld_total; ?> (<?php echo $ld_percentage; ?>% profile links)</p>
+        <p>dc = <?php echo $dc_total; ?> (<?php echo $dc_percentage; ?>% profile links)</p>
 
         <h2>Clicks by Platform:</h2>
         <p>Android = <?php echo $android_percentage; ?>%</p>
